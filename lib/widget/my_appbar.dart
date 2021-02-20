@@ -9,29 +9,45 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-      color: Color(0xffeeeeee),
+      color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           CupertinoButton(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(10),
               child: SvgPicture.network(
-                'https://www.flaticon.es/svg/static/icons/svg/685/685655.svg',
-                width: 50,
+                'https://www.flaticon.com/svg/vstatic/svg/1518/1518113.svg?token=exp=1613858723~hmac=715ca0ca6a81353a66854dcd3c6f2416',
+                width: 30,
               ),
               onPressed: () {}),
           Text(
-            'Logo',
+            'LOGO',
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
           ),
           CupertinoButton(
-              padding: EdgeInsets.all(15),
-              child: SvgPicture.network(
-                'https://www.flaticon.es/svg/vstatic/svg/607/607795.svg?token=exp=1611094101~hmac=7e169f34e7f7669cdd696cd00bb5e897',
-                width: 50,
-              ),
-              onPressed: () {})
+              onPressed: () {},
+              padding: EdgeInsets.all(0),
+              child: Stack(
+                children: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.all(15),
+                      child: SvgPicture.network(
+                        'https://www.flaticon.es/svg/vstatic/svg/876/876221.svg?token=exp=1613858793~hmac=25e67a0dfa40e7de7746752a23df4db9',
+                        width: 30,
+                      )),
+                  Positioned(
+                    right: 12,
+                    top: 12,
+                    child: Container(
+                      width: 16,
+                      height: 16,
+                      decoration: BoxDecoration(
+                          color: Colors.red, shape: BoxShape.circle),
+                    ),
+                  )
+                ],
+              ))
         ],
       ),
     );

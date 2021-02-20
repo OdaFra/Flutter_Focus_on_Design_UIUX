@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../widget/circle_container.dart';
 import '../widget/bottom_menu.dart';
 import '../widget/avatar.dart';
 import '../widget/cronometro.dart';
-import 'package:disenho_ui_y_ux_flutter/main.dart';
-import 'package:disenho_ui_y_ux_flutter/widget/my_appbar.dart';
+import '../widget/my_appbar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -21,21 +18,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   brightness: Brightness.light,
-      //   backgroundColor: Colors.white,
-      //   elevation: 0,
-      //   title: Text(
-      //     'Logo',
-      //     style: TextStyle(color: Colors.black),
-      //   ),
-      //   iconTheme: IconThemeData(color: Colors.blue),
-      //   leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-      //   actions: <Widget>[
-      //     IconButton(icon: Icon(Icons.send), onPressed: () {}),
-      //     IconButton(icon: Icon(Icons.more_vert), onPressed: () {})
-      //   ],
-      // ),
       bottomNavigationBar: BottomMenu(
         items: [
           BottonMenuItem(iconPath: 'assets/icons/home.svg', label: 'Inicio'),
