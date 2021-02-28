@@ -1,3 +1,4 @@
+import 'package:disenho_ui_y_ux_flutter/pages/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../widget/bottom_menu.dart';
@@ -36,7 +37,15 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   //Appbar
-                  MyAppBar(),
+                  MyAppBar(
+                    lefticon: 'assets/icons/usercamera.svg',
+                    righticon: 'assets/icons/chat.svg',
+                    onrightclick: () {
+                      final route = MaterialPageRoute(
+                          builder: (BuildContext _) => ChatPage());
+                      Navigator.push(context, route);
+                    },
+                  ),
                   Expanded(
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,12 +84,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       CupertinoButton(
                           color: Colors.green,
-                          child: Text('New fontSize'),
-                          onPressed: () {
-                            setState(() {
-                              _fontSize++;
-                            });
-                          })
+                          child: Text('Ir a chat'),
+                          onPressed: () {})
                     ],
                   )),
                 ],

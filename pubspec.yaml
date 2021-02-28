@@ -55,7 +55,9 @@ flutter:
     - assets/icons/perfil.svg
     - assets/icons/compra.svg
     - assets/icons/historial.svg
-    - assets/icons/camara.svg
+    - assets/icons/usercamera.svg
+    - assets/icons/chat.svg
+    - assets/icons/hacia-atras.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
