@@ -1,19 +1,24 @@
 import 'package:disenho_ui_y_ux_flutter/widget/my_appbar.dart';
 import 'package:flutter/material.dart';
 
-class ChatPage extends StatefulWidget {
+class ImagesPageargs {
   final String username;
+  final bool isActive;
 
-  const ChatPage({Key key, @required this.username})
-      : assert(username != null),
-        super(key: key);
-  @override
-  _ChatPageState createState() => _ChatPageState();
+  ImagesPageargs({@required this.username, @required this.isActive});
 }
 
-class _ChatPageState extends State<ChatPage> {
+class ImagesPage extends StatefulWidget {
+  static final routeName = 'images';
+  @override
+  _ImagesPageState createState() => _ImagesPageState();
+}
+
+class _ImagesPageState extends State<ImagesPage> {
   @override
   Widget build(BuildContext context) {
+    final ImagesPageargs args = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
         body: SafeArea(
             child: Container(
@@ -24,9 +29,13 @@ class _ChatPageState extends State<ChatPage> {
           MyAppBar(
             lefticon: 'assets/icons/hacia-atras.svg',
             righticon: 'assets/icons/chat.svg',
+            onrightclick: () {},
             onleftclick: () => Navigator.pop(context),
           ),
-          Expanded(child: Center(child: Text(widget.username)))
+          Expanded(
+              child: Center(
+                  child: Text(
+                      "${args.username} está activada? ${args.isActive} ")))
         ],
       ),
     )));

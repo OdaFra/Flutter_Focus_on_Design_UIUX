@@ -1,4 +1,7 @@
 import 'package:disenho_ui_y_ux_flutter/pages/chat_page.dart';
+import 'package:disenho_ui_y_ux_flutter/pages/images.dart';
+import 'package:disenho_ui_y_ux_flutter/pages/post_page.dart';
+import 'package:disenho_ui_y_ux_flutter/widget/my_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../widget/bottom_menu.dart';
@@ -7,6 +10,7 @@ import '../widget/cronometro.dart';
 import '../widget/my_appbar.dart';
 
 class HomePage extends StatefulWidget {
+  static final routeName = 'Home';
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -42,8 +46,15 @@ class _HomePageState extends State<HomePage> {
                     righticon: 'assets/icons/chat.svg',
                     onrightclick: () {
                       final route = MaterialPageRoute(
-                          builder: (BuildContext _) => ChatPage());
+                          builder: (BuildContext _) => ChatPage(
+                                username: 'Odafra',
+                              ));
                       Navigator.push(context, route);
+                    },
+                    onleftclick: () {
+                      Navigator.pushNamed(context, ImagesPage.routeName,
+                          arguments: ImagesPageargs(
+                              username: 'OdaFra', isActive: true));
                     },
                   ),
                   Expanded(
@@ -62,30 +73,36 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      _isEnabled == true
-                          ? Cronometer(
-                              iniTime: 00,
-                              fontSize: _fontSize,
-                            )
-                          : Container(),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      CupertinoButton(
-                          color: Colors.blue,
-                          child: Text('Enabled: $_isEnabled'),
-                          onPressed: () {
-                            setState(() {
-                              _isEnabled = !_isEnabled;
-                            });
-                          }),
+                      // _isEnabled == true
+                      //     ? Cronometer(
+                      //         iniTime: 00,
+                      //         fontSize: _fontSize,
+                      //       )
+                      //     : Container(),
                       SizedBox(
                         height: 20,
                       ),
-                      CupertinoButton(
-                          color: Colors.green,
-                          child: Text('Ir a chat'),
-                          onPressed: () {})
+                      // CupertinoButton(
+                      //     color: Colors.blue,
+                      //     child: Text('Enabled: $_isEnabled'),
+                      //     onPressed: () {
+                      //       setState(() {
+                      //         _isEnabled = !_isEnabled;
+                      //       });
+                      //     }),
+                      // SizedBox(
+                      //   height: 20,
+                      // ),
+                      // CupertinoButton(
+                      //     color: Colors.green,
+                      //     child: Text('Ir a chat'),
+                      //     onPressed: () {})
+                      MyBtn(
+                        label: 'Mi Posts',
+                        onPressed: () {
+                          Navigator.pushNamed(context, PostsPage.routeName);
+                        },
+                      )
                     ],
                   )),
                 ],
